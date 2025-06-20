@@ -7,7 +7,13 @@ import { useState, useEffect } from 'react';
 import apiRequest from './apiRequest';
 
 function App() {
-  const API_URL = 'http://localhost:3500/items';
+// const API_URL = `${process.env.REACT_APP_API_URL || 'http://localhost:3500'}/items`;
+// const API_URL = `${process.env.REACT_APP_API_URL}/items`;
+// const API_URL =  'http://localhost:3500/items';
+const API_URL = `${process.env.REACT_APP_API_URL}/items`;
+console.log("Fetching from:", API_URL);
+
+
 
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState('');
@@ -33,7 +39,7 @@ function App() {
     fetchItems();
     //setTimeout(() => fetchItems(), 2000);
 
-  }, [])
+  }, [API_URL]);
 
   const addItem = async (item) => {
     const id = items.length ? Math.max(...items.map(item => Number(item.id))) + 1 : 1;

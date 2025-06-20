@@ -2,11 +2,17 @@ const Header = ({ title }) => {
 
     return (
         <header>
-            <h1>  <img 
-                src="to-do6.png" 
+            {/* <h1>  <img 
+                src="/to-do6.png" 
                 alt="App Icon" 
                 className="header-icon"
-            />{title}</h1>
+            />{title}</h1> */}
+             <h1>  <img 
+  src={`${process.env.PUBLIC_URL}/to-do6.png`} 
+  alt="App Icon" 
+  className="header-icon"
+/>
+{title}</h1>
         </header>
     )
 }
